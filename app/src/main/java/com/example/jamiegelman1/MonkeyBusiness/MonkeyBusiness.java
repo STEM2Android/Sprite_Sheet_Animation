@@ -25,9 +25,13 @@ public class MonkeyBusiness extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // FrameLayout game = new FrameLayout(this);
         // Initialize gameView and set it as the view
         gameView = new GameView(this);
+        // GamePanel gp = new GamePanel(this);
+        // game.addView(gameView);
+        // game.addView(gp);
+        // setContentView(game);    
         setContentView(gameView);
 
     }
@@ -203,7 +207,10 @@ public class MonkeyBusiness extends Activity {
             if (ourHolder.getSurface().isValid()) {
                 // Lock the canvas ready to draw
                 canvas = ourHolder.lockCanvas();
-
+                
+                // set the max possible size of the painted canvas
+                // canvas.setFixedSize(frameWidth, frameHeight);
+                
                 // Draw the background color***************************************
               canvas.drawColor(Color.argb(255, 26, 128, 182));
               //  background = getImage(base, "data/background.png");
@@ -232,6 +239,8 @@ public class MonkeyBusiness extends Activity {
                         whereToDraw, paint);
 
                 // Draw everything to the screen
+                
+                // hmmm, is this the problem?
                 ourHolder.unlockCanvasAndPost(canvas);
             }
 
